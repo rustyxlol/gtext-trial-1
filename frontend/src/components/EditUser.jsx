@@ -16,8 +16,8 @@ const EditUser = () => {
   const getUserById = async () => {
     const response = await axios.get(`http://localhost:5000/users/${id}`);
     setName(response.data.name);
-    setNumber(response.data.email);
-    setAddress(response.data.gender);
+    setNumber(response.data.number);
+    setAddress(response.data.address);
   };
 
   const updateUser = async (e) => {
@@ -25,8 +25,8 @@ const EditUser = () => {
     try {
       await axios.patch(`http://localhost:5000/users/${id}`, {
         name,
-        email,
-        gender,
+        address,
+        number,
       });
       navigate('/');
     } catch (error) {
